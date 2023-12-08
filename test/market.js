@@ -10,12 +10,12 @@ describe("Market", function () {
         const USDT = await ethers.getContractFactory("USDT");
         usdt = await USDT.deploy();
         const NFT = await ethers.getContractFactory("NFTM");
-        nft = await NFT.deploy(account1.address);
+        nft = await NFT.deploy();
         const Market = await ethers.getContractFactory("NFTMarket");
         market = await Market.deploy(usdt.address, nft.address);
 
-        await nft.safeMint(account2.address);
-        await nft.safeMint(account2.address);
+        await nft.safeMint(account2.address, 'http://sample.com/0');
+        await nft.safeMint(account2.address, 'http://sample.com/1');
         await usdt.approve(market.address, "1000000000000000000");
         await nft.connect(account2).setApprovalForAll(account1.address, true);
     });
