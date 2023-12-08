@@ -1,0 +1,486 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "_erc20",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IERC721",
+						"name": "_erc721",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "CancelOrder",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "previousPrice",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "ChangePrice",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "Deal",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "NewOrder",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "OrderOfId",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_price",
+						"type": "uint256"
+					}
+				],
+				"name": "buy",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelOrder",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_price",
+						"type": "uint256"
+					}
+				],
+				"name": "changePrice",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "erc20",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "erc721",
+				"outputs": [
+					{
+						"internalType": "contract IERC721",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllNFTs",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "seller",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct NFTMarket.Order[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getMyNFTs",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "seller",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct NFTMarket.Order[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getOrderLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "idToOrderIndex",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "isListed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_seller",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC721Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "orders",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ntf_market.sol": "NFTMarket"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/IERC165.sol": {
+			"keccak256": "0x2bc654efbc44d6291fc996e87968c13af87da949019a637248a3967f962926d5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2bae696e797deab219d11de8a77c2a80b52f42ca8a0062cce012fa0661df23c6",
+				"dweb:/ipfs/QmQCfv5ba6vQLYAgJLpGP1Rccii3Bz2siqAnmVpAHHydZS"
+			]
+		},
+		"contracts/interfaces/IERC20.sol": {
+			"keccak256": "0x9a74a2bcb87adad7cd49d9072dd6e2cd4f05a81ba16928635d696cb291067706",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dff27549a5b9c0fa289d379f5abc701590c9dc239f4147cf09678a56b170650b",
+				"dweb:/ipfs/QmeAnMgL5kkHks1yQoYUgv7berjHN53XiPFRMeFhuqbNcE"
+			]
+		},
+		"contracts/interfaces/IERC721.sol": {
+			"keccak256": "0xca824e6f1cc60f98639292c4140a2e5be008eb93468615504315b83c1cacea80",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f6d5ab8c9b654ec69b0fb3ea3533e7666a9fcc5419ac77434d812bfbcde590c8",
+				"dweb:/ipfs/QmUh1kVgKAfNFprYgk3VoA7Q2T5jgjmVAn5gRM41yKUDvM"
+			]
+		},
+		"contracts/interfaces/IERC721Receiver.sol": {
+			"keccak256": "0xc89d798f7eaa6653d76167f93987695cd8fff7dc0a24cd3ee1bcd1f3829acc62",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9a2ff4ca946fb293ce4a01409046a728b01fb03dc69ef37a181bfcf68c169dcc",
+				"dweb:/ipfs/QmUKUKhjNZ1YVDXZUWxZQaS4Ltrp7nk4tyvtzpqBSKnZzd"
+			]
+		},
+		"contracts/ntf_market.sol": {
+			"keccak256": "0x8ec26200c9d5a6435bb4ca06ae9f932c26daa9256da2580b812cc5402a3fc16b",
+			"license": "SEE LICENSE IN LICENSE",
+			"urls": [
+				"bzz-raw://5989272d3f9a7232f352269883cb3a333c51bc7dd2117568f6b0f6cdb260c842",
+				"dweb:/ipfs/QmbJgqZTRiAAwFgMUaQshx47o9tRnr8fno2X21dxEGvMXz"
+			]
+		},
+		"contracts/utils/SafeMath.sol": {
+			"keccak256": "0x2aa73ab36b39731ea4377461e02185b09d9cf1d113bd265a01c21d7a72fd2135",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5b6d29fe647a6745530316aad52ad2729001201fd5857f39af92a17f33a9b68b",
+				"dweb:/ipfs/Qmazxwnph1TzwTHP5GkXVTxxp4pc6YmZbPVCZXe3BBCDGV"
+			]
+		}
+	},
+	"version": 1
+}
